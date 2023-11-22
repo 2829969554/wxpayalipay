@@ -1,0 +1,53 @@
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<head>
+	<title>微信打赏</title>
+	
+	<style type="text/css">
+		body {
+			font-size: 23px;
+			position: relative;
+			top: 30%;
+			text-align: center;
+			background-color: rgb(255, 255, 255);
+		}
+
+	</style>
+<script type="text/javascript">
+	//######################################################
+	//###############自行修改为自己的收款码###################
+	//######################################################
+	var WXpayurl="https://payapp.wechatpay.cn/sjt/qr/AQFoDOhnnINqlo9DJHwMZoaJ";
+	var WXpngurl="wxpay.png";
+	//######################################################
+</script>
+</head>
+<body>
+	<p><img style="margin:-5px;" src="logo/wxsm.png"> 微信付款专用安全通道	</p>
+	<p id="wxsmxx" style="display: none;">
+		<button style="font-size: 32px;border: 1px solid rgb(7,192,96);background-color: rgb(7,192,96);color: white;" onclick='window.open(WXpayurl);' >发起付款</button>
+	</p>
+</body>
+	<script type="text/javascript">
+function isWeiXin() {
+
+var ua = window.navigator.userAgent.toLowerCase();
+if(ua.indexOf('windows') != -1){
+	return false;
+}
+if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+return true;
+} else {
+return false;
+}
+}
+		if(isWeiXin()){
+			document.getElementById('wxsmxx').style.display='';
+			window.open(WXpayurl);
+		}else{
+			document.body.style.top="0px";
+			document.write('<img style="width:320px;" src="'+WXpngurl+'"/><h2>请使用微信扫码</h2>');
+		}
+	</script>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<head>
+	<title>支付宝打赏</title>
+	<style type="text/css">
+		body {
+			font-size: 23px;
+			position: relative;
+			top: 30%;
+			text-align: center;
+			background-color: rgb(255, 255, 255);
+		}
+	</style>
+
+<script type="text/javascript">
+	//######################################################
+	//###############自行修改为自己的收款码###################
+	//######################################################
+	var zfbpayurl="https://qr.alipay.com/2m611351qb9y2gms1llai78";
+	var zfbpngurl="alipay.png";
+	//######################################################
+</script>
+
+</head>
+<body>
+	<p><img style="margin:-5px;" src="logo/alism.png"> 支付宝付款专用安全通道</p>
+	<p id="wxsmxx" style="display: none;">
+	<button style="font-size: 32px;border: 1px solid rgb(20,118,254);background-color: rgb(20,118,254);color: white;" onclick='window.open(zfbpayurl);' >发起付款</button>
+	</p>
+</body>
+	<script type="text/javascript">
+function isalipay() {
+var ua = window.navigator.userAgent.toLowerCase();
+if(ua.indexOf('windows') != -1){
+	return false;
+}
+if (ua.match(/AlipayClient/i) == 'alipayclient') {
+return true;
+} else {
+return false;
+}
+}
+		if(isalipay()){
+			document.getElementById('wxsmxx').style.display='';
+			window.open(zfbpayurl);
+		}else{
+			document.body.style.top="0px";
+			document.write('<img style="width:320px;" src="'+zfbpngurl+'"/><h2>请使用支付宝扫码</h2>');
+		}
+	</script>
+</html>
